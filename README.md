@@ -1,5 +1,9 @@
 # POC — CompletableFuture 
 
+O CompletableFuture foi introduzido no Java 8 e permite executar tarefas de forma assíncrona, encadear operações e combinar resultados sem precisar bloquear a execução a cada etapa.
+
+Imagine um microsserviço que precisa consultar três APIs externas. Em vez de esperar a conclusão de cada chamada para iniciar a próxima, podemos executar as consultas de forma independente e combinar os resultados depois.
+
 ## Roteiro de estudos
 
 ### 01 runAsync() e supplyAsync()
