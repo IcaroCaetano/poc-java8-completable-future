@@ -12,14 +12,17 @@ public class Example02CompletableFutureChaining {
                     return 100.0;
                 });
 
+        // Recebe o resultado anterior e produz resultado útil.
         CompletableFuture<Double> discountedPriceFuture =
                 priceFuture.thenApply(price -> price * 0.90);
 
+        // Recebe o resultado anterior, mas não retorna.
         CompletableFuture<Void> printFuture =
                 priceFuture.thenAccept(price ->
                         System.out.println("Original price: " + price)
                 );
 
+        // Não Recebe o resultado, e não retorna.
         CompletableFuture<Void> finalFuture =
                 priceFuture.thenRun(() ->
                         System.out.println("Price processing completed.")
