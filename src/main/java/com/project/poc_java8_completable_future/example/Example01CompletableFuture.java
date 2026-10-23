@@ -8,19 +8,14 @@ public class Example01CompletableFuture {
 
         CompletableFuture<Void> task1 =
                 CompletableFuture.runAsync(() -> {
-                    System.out.println(
-                            "Task 1 running on: "
-                                    + Thread.currentThread().getName()
-                    );
+                    System.out.println("Task 1 running on: " + Thread.currentThread().getName());
                 });
 
         task1.join();
 
         CompletableFuture<String> task2 =
                 CompletableFuture.supplyAsync(() -> {
-                    System.out.println(
-                            "Task 2 running on: " + Thread.currentThread().getName()
-                    );
+                    System.out.println("Task 2 running on: " + Thread.currentThread().getName());
 
                     return "Hello from CompletableFuture";
                 });
