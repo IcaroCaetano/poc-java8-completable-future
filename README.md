@@ -18,7 +18,15 @@ Executar tarefas assíncronas com e sem retorno de valor.
 
 Transformar resultados, consumir valores e executar ações posteriores.
 
+#### thenApply() — transforma o resultado
+Use quando você precisa receber o resultado de uma operação e transformá-lo em outro valor.
 
+
+#### thenAccept() — consome o resultado
+Use quando você quer receber o resultado para fazer alguma coisa com ele, sem produzir um novo valor para a próxima etapa.
+
+#### thenRun() — executa uma ação sem receber o resultado
+Use quando você só precisa executar uma ação após a conclusão da etapa anterior, sem utilizar o resultado dela.
 
 ### 03 thenCompose() e thenCombine()
 
