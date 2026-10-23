@@ -29,5 +29,12 @@ public class Example01CompletableFuture {
 
         System.out.println("Result: " + result);
         System.out.println("Main thread finished");
+
+        /**
+         * Task 1 running on: ForkJoinPool.commonPool-worker-1
+         * Task 2 running on: ForkJoinPool.commonPool-worker-1
+         * Result: Hello from CompletableFuture
+         * Main thread finished
+         */
     }
 }
