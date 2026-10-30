@@ -55,5 +55,15 @@ public class Example03CompletableFutureComposeAndCombine {
         System.out.println(
                 "Order total: " + totalFuture.join()
         );
+
+        /**
+         * Fetching user ID...
+         * Fetching details for USER-123
+         * User details: John Doe
+         * --------------------------------
+         * Fetching product price...
+         * Fetching product quantity...
+         * Order total: 300.0
+         */
     }
 }
