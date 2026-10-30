@@ -34,4 +34,12 @@ public class Example03CompletableFutureChaining {
 
         System.out.println("Main thread finished.");
     }
+
+    /**
+     * Fetching product price...
+     * Applying discount...
+     * Discounted price: 90
+     * Order processing completed!
+     * Main thread finished.
+     */
 }
