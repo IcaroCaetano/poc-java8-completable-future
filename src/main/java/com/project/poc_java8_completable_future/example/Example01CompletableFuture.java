@@ -18,7 +18,6 @@ public class Example01CompletableFuture {
 
                     return "Hello from CompletableFuture";
                 });
-        System.out.println("Task 3 running on: " + Thread.currentThread().getName());
 
         String result = task2.join();
 
