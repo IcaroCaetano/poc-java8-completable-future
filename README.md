@@ -15,12 +15,14 @@ Executar tarefas assíncronas com e sem retorno de valor.
 #### runAsync 
  - executa uma tarefa sem retornar um resultado.
 
+O runAsync recebe uma interface funcional Runnable. Que representa uma operação que não retorna um resultado.
+
 Exemplo: enviar uma notificação, gravar um log ou executar uma rotina de limpeza.
 
 #### supplyAsync
 
 - Utilize quando você precisa executar uma operação e obter algum resultado.
-
+O SuplyAsync recebe não recebe nenhum argumento. Ele fornece um a execucao de um comportamento. E fornece um valor.
 
 ### 02 thenApply(), thenAccept() e thenRun()
 
