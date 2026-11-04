@@ -16,16 +16,12 @@ public class Example03CompletableFutureComposeAndCombine {
         CompletableFuture<String> userDetailsFuture =
                 userIdFuture.thenCompose(userId ->
                         CompletableFuture.supplyAsync(() -> {
-                            System.out.println(
-                                    "Fetching details for " + userId
-                            );
+                            System.out.println("Fetching details for " + userId);
                             return "John Doe";
                         })
                 );
 
-        System.out.println(
-                "User details: " + userDetailsFuture.join()
-        );
+        System.out.println("User details: " + userDetailsFuture.join());
 
         System.out.println("----------------***********************----------------");
 
