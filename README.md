@@ -12,6 +12,14 @@ Imagine um microsserviço que precisa consultar três APIs externas. Em vez de e
 Vamos começar aqui
 Executar tarefas assíncronas com e sem retorno de valor.
 
+#### runAsync 
+ - executa uma tarefa sem retornar um resultado.
+
+Exemplo: enviar uma notificação, gravar um log ou executar uma rotina de limpeza.
+
+#### supplyAsync
+
+- Utilize quando você precisa executar uma operação e obter algum resultado.
 
 
 ### 02 thenApply(), thenAccept() e thenRun()
