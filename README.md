@@ -42,31 +42,58 @@ Use quando você só precisa executar uma ação após a conclusão da etapa ant
 public class Example03CompletableFutureComposeAndCombine {
 
 ### 03 thenCompose() e thenCombine()
-    public static void main(String[] args) {
 
-Encadear operações assíncronas e combinar resultados independentes.
+#### 1. thenCompose() — operações dependentes
+thenCompose() é utilizado quando a segunda operação depende do resultado da primeira.
+
+```java
+public static void main(String[] args) {
+
 // Example 1: thenCompose()
 // Simulate fetching a user ID
-CompletableFuture<String> userIdFuture =
-CompletableFuture.supplyAsync(() -> {
-System.out.println("Fetching user ID...");
-return "USER-123";
-});
+    CompletableFuture<String> userIdFuture =
+            CompletableFuture.supplyAsync(() -> {
+                System.out.println("Fetching user ID...");
+                return "USER-123";
+            });
 
-        // Fetch user details based on the user ID
-        CompletableFuture<String> userDetailsFuture =
-                userIdFuture.thenCompose(userId ->
-                        CompletableFuture.supplyAsync(() -> {
-                            System.out.println(
-                                    "Fetching details for " + userId
-                            );
-                            return "John Doe";
-                        })
-                );
+    // Fetch user details based on the user ID
+    CompletableFuture<String> userDetailsFuture =
+            userIdFuture.thenCompose(userId ->
+                    CompletableFuture.supplyAsync(() -> {
+                        System.out.println(
+                                "Fetching details for " + userId
+                        );
+                        return "John Doe";
+                    })
+            );
 
-        System.out.println(
-                "User details: " + userDetailsFuture.join()
-        );
+    System.out.println("User details: " + userDetailsFuture.join()
+    );
+}
+````
+#### 2. thenCombine() — operações independentes
+
+
+````java
+public static void main(String[] args) {
+
+    CompletableFuture<Double> priceFuture =
+            CompletableFuture.supplyAsync(() -> 100.0);
+
+    CompletableFuture<Integer> quantityFuture =
+            CompletableFuture.supplyAsync(() -> 3);
+
+    CompletableFuture<Double> totalFuture =
+            priceFuture.thenCombine(
+                    quantityFuture,
+                    (price, quantity) -> price * quantity
+            );
+
+    System.out.println(totalFuture.join());
+
+}
+````
 
 ### 04 allOf() e anyOf()
         System.out.println("--------------------------------");
