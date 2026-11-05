@@ -61,9 +61,7 @@ public static void main(String[] args) {
     CompletableFuture<String> userDetailsFuture =
             userIdFuture.thenCompose(userId ->
                     CompletableFuture.supplyAsync(() -> {
-                        System.out.println(
-                                "Fetching details for " + userId
-                        );
+                        System.out.println("Fetching details for " + userId);
                         return "John Doe";
                     })
             );

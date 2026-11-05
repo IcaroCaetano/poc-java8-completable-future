@@ -43,9 +43,7 @@ public class Example03CompletableFutureComposeAndCombine {
                         (price, quantity) -> price * quantity
                 );
 
-        System.out.println(
-                "Order total: " + totalFuture.join()
-        );
+        System.out.println("Order total: " + totalFuture.join());
 
         /**
          * Fetching user ID...
