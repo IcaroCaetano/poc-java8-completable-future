@@ -77,5 +77,15 @@ public class Example04CompletableFutureAllOfAndAnyOf {
             Thread.currentThread().interrupt();
             throw new RuntimeException(e);
         }
+
+        /**
+         * Fetching user ID...
+         * Fetching details for USER-123
+         * User details: John Doe
+         * ----------------***********************----------------
+         * Fetching product price...
+         * Fetching product quantity...
+         * Order total: 300.0
+         */
     }
 }
