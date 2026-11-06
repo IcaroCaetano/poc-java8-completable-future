@@ -41,6 +41,14 @@ import java.util.concurrent.CompletableFuture;
 Use quando você só precisa executar uma ação após a conclusão da etapa anterior, sem utilizar o resultado dela.
 public class Example03CompletableFutureComposeAndCombine {
 
+#### Resumo
+
+|Método	 | Responsabilidade|
+|---------|----------|
+|thenApply()	|Aguarda, recebe e transforma o resultado.|
+|thenAccept()|	Aguarda, recebe e consome o resultado.|
+|thenRun()	|Aguarda a conclusão e executa uma ação independente do resultado.|
+
 ### 03 thenCompose() e thenCombine()
 
 #### 1. thenCompose() — operações dependentes

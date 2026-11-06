@@ -25,7 +25,7 @@ public class Example02CompletableFutureChaining {
         // Não Recebe o resultado, e não retorna. (Runnable)
         CompletableFuture<Void> finalFuture =
                 priceFuture.thenRun(() ->
-                        System.out.println("Price processing completed.")
+                        System.out.println("Price processing completed. ")
                 );
 
 
