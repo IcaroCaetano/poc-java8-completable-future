@@ -72,6 +72,7 @@ public static void main(String[] args) {
 ````
 #### 2. thenCombine() — operações independentes
 
+duas operações independentes precisam ter seus resultados combinados.
 
 ````java
 public static void main(String[] args) {
@@ -94,29 +95,45 @@ public static void main(String[] args) {
 ````
 
 ### 04 allOf() e anyOf()
-        System.out.println("--------------------------------");
 
 Coordenar múltiplas tarefas assíncronas.
-// Example 2: thenCombine()
-// Simulate two independent operations
-CompletableFuture<Double> priceFuture =
-CompletableFuture.supplyAsync(() -> {
-System.out.println("Fetching product price...");
-return 100.0;
-});
 
-        CompletableFuture<Integer> quantityFuture =
-                CompletableFuture.supplyAsync(() -> {
-                    System.out.println("Fetching product quantity...");
-                    return 3;
-                });
+#### 1. allOf() — aguardar todas as operações
 
-        // Combine both results
-        CompletableFuture<Double> totalFuture =
-                priceFuture.thenCombine(
-                        quantityFuture,
-                        (price, quantity) -> price * quantity
-                );
+Imagine que você precisa consultar três APIs externas:
+- 1. API de clientes.
+- 2. API de produtos.
+- 3. API de pedidos.
+
+```
+API Customers---------------------API Products--------------------API Orders
+                                        ||
+                                        \/
+                                CompletableFuture.allOf()
+                                
+                                  Todas concluídas
+                                Continue o processamento
+````
+
+#### 2. anyOf() — aguardar a primeira operação terminar
+
+Agora imagine que você possui duas APIs que fornecem a mesma informação, por exemplo, dois provedores de consulta de CEP.
+
+````
+  API A------------------------------------------API B
+Provedor 1                  ||                   Provedor 2
+                            ||
+                            \/
+                  CompletableFuture.anyOf()
+                            ||
+                            \/
+                Primeira operação concluída
+
+                 Utiliza o primeiro resultado
+````
+Importante: anyOf() considera a primeira operação que termina, inclusive se ela terminar 
+excepcionalmente. Ele não espera necessariamente pela primeira operação bem-sucedida.
+
 
 ### 05 Tratamento de erros
         System.out.println(
@@ -124,9 +141,6 @@ return 100.0;
         );
     }
 }
-
-Estudar exceptionally(), handle() e whenComplete().
-
 
 
 ### 06 Executores personalizados e exemplo real
